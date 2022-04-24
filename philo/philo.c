@@ -6,11 +6,19 @@
 /*   By: aelousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 16:21:45 by aelousse          #+#    #+#             */
-/*   Updated: 2022/03/21 17:42:08 by aelousse         ###   ########.fr       */
+/*   Updated: 2022/04/04 16:01:33 by aelousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+int	ft_isdigit(int c)
+{
+	if (c >= '0' && c <= '9')
+		return (1);
+	else
+		return (0);
+}
 
 void	init_thread(t_philo *philo)
 {
@@ -50,13 +58,20 @@ int	main(int ac, char **av)
 		philo.time_to_eat = ft_atoi(av[3]);
 		philo.time_to_sleep = ft_atoi(av[4]);
 		if (av[5])
+		{
 			philo.nb_time_must_eat = ft_atoi(av[5]);
+		}
 		philo.philos = malloc(sizeof(t_pthread) * philo.nb_philo);
+		if (!philo.philos)
+			return (0);
 		philo.forks = malloc(sizeof(pthread_mutex_t) * philo.nb_philo);
+		if (!philo.forks)
+			return (0);
 		philo.time = ft_time();
 		ft_initializing(&philo);
 		init_thread(&philo);
 		philo_manager(&philo);
+		ft_free(&philo);
 	}
 	return (0);
 }

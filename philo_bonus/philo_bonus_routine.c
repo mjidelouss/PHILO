@@ -64,10 +64,7 @@ void	ft_exit(t_philo *philo, int *pid, int size)
 	int	status;
 
 	if (size == philo->nb_philo)
-	{
-		free(pid);
-		ft_free(philo, 0);
-	}
+		return (free(pid), ft_free(philo, 0));
 	wait(&status);
 	if (WIFEXITED(status))
 	{
@@ -86,8 +83,7 @@ void	ft_exit(t_philo *philo, int *pid, int size)
 		while (++i < philo->nb_philo)
 			kill(pid[i], SIGKILL);
 	}
-	free(pid);
-	ft_free(philo, 0);
+	return (free(pid), ft_free(philo, 0));
 }
 
 void	*routine(void *phil)

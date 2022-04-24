@@ -12,6 +12,14 @@
 
 #include "philo_bonus.h"
 
+int	ft_isdigit(int c)
+{
+	if (c >= '0' && c <= '9')
+		return (1);
+	else
+		return (0);
+}
+
 void	*init_thread(t_philo *philo)
 {
 	int	i;

@@ -6,7 +6,7 @@
 /*   By: aelousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 17:58:57 by aelousse          #+#    #+#             */
-/*   Updated: 2022/03/22 18:47:53 by aelousse         ###   ########.fr       */
+/*   Updated: 2022/04/04 16:14:49 by aelousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,20 +42,21 @@ typedef struct s_philo {
 }	t_philo;
 
 // Libft Functions :
-long	ft_atoi(const char *str);
+long		ft_atoi(const char *str);
 
 // Philo Functions :
-int		ft_allocation(t_philo *philo, char **av);
-void	*init_thread(t_philo *philo);
-void	ft_usleep(unsigned long time);
-int		checker(int ac, char **av);
-void	init_sem(t_philo *philo);
-void	philo_manager(t_pthread *philo);
-void	ft_exit(t_philo *philo, int *pid, int size);
-void	init_fork(t_pthread *philo, int c);
-void	print(t_pthread *philo, char *s, int lamp);
-void	*routine(void *phil);
+int			ft_allocation(t_philo *philo, char **av);
+void		*init_thread(t_philo *philo);
+void		ft_usleep(unsigned long time);
+int			checker(int ac, char **av);
+void		init_sem(t_philo *philo);
+void		philo_manager(t_pthread *philo);
+void		ft_exit(t_philo *philo, int *pid, int size);
+void		init_fork(t_pthread *philo, int c);
+void		print(t_pthread *philo, char *s, int lamp);
+void		*routine(void *phil);
 long long	ft_time(void);
-int		ft_free(t_philo *philo, int k);
+void		ft_free(t_philo *philo, int k);
+int			ft_isdigit(int c);
 
 #endif

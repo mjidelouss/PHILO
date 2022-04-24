@@ -6,7 +6,7 @@
 /*   By: aelousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 16:22:07 by aelousse          #+#    #+#             */
-/*   Updated: 2022/03/21 17:59:57 by aelousse         ###   ########.fr       */
+/*   Updated: 2022/04/04 16:13:28 by aelousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ typedef struct s_pthread {
 
 typedef struct s_philo {
 	long long		time;
-	int				lamp;
 	int				nb_philo;
 	int				time_to_eat;
 	int				time_to_die;
@@ -41,18 +40,21 @@ typedef struct s_philo {
 }	t_philo;
 
 // Libft Functions :
-long	ft_atoi(const char *str);
+long		ft_atoi(const char *str);
 
 // Philo Functions :
-void	ft_initializing(t_philo *philo);
-void	check_lamp(int ac, t_philo *philo);
-void	init_thread(t_philo *philo);
-void	ft_usleep(unsigned long time);
-int		checker(int ac, char **av);
-void	*philo_manager(t_philo *philo);
-void	init_fork(t_pthread *philo, int c);
-void	print(t_pthread *philo, char *s, int lamp);
-void	*routine(void *phil);
-int		nb_time_must_eat(int *c, t_pthread *philo);
 long long	ft_time(void);
+void		ft_initializing(t_philo *philo);
+void		check_lamp(int ac, t_philo *philo);
+void		init_thread(t_philo *philo);
+void		ft_usleep(unsigned long time);
+int			checker(int ac, char **av);
+int			nb_time_must_eat(int *c, t_pthread *philo);
+void		*philo_manager(t_philo *philo);
+void		init_fork(t_pthread *philo, int c);
+void		print(t_pthread *philo, char *s, int lamp);
+void		*routine(void *phil);
+int			ft_free(t_philo *philo);
+int			ft_isdigit(int c);
+
 #endif
